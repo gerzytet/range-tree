@@ -305,7 +305,7 @@ namespace RangeTree {
             for (int i = 0; i < points.size(); i++) { order[i] = i; }
             PointOrdering<T,S> pointOrdering(onDim);
             std::sort(order.begin(), order.end(),
-                      [pointOrdering, points](int i, int j) {
+                      [&pointOrdering, &points](int i, int j) {
                           return pointOrdering.less(*(points[i]), *(points[j]));
                       });
             return order;
